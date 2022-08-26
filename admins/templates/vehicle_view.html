@@ -1,0 +1,45 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+            <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center  mb-4 mt-5">
+                        <h1 class="h3 mb-0 text-gray-800"> <a href="" class="btn btn-dark"> home</a></h1>
+                        
+                    </div>
+                    
+                    <div class="row  align-items-center justify-content-center" style="height: 100%;" >
+                        <div class="col-md-5 p-5 d-flex justify-content-between text-white " style="background-color: #4e72df97; border-radius: 25px;">
+                                
+                            <div>
+                                
+                                <H6>NUMBER</H6>
+                                <H6>TYPE </H6>
+                                <H6>MODEL </H6>
+                                <H6>DESCRIPTION</H6>
+                            </div>
+                            <div>
+                                
+                                <H6> :</H6>
+                                <H6> :</H6>
+                                <H6> :</H6>
+                                <H6> :</H6>
+                            </div>
+                            
+                            <div>
+                                <h6>{{vehicle.vehicle_number}}</h6>
+                                <h6>{{vehicle.type}}</h6>
+                                <h6>{{vehicle.vehicle_model}}</h6>
+                                <h6>{{vehicle.description}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+  
+{% endblock body %}

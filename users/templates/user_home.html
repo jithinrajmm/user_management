@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+
+
+{% block style %} 
+<style>
+    .text{
+                background: #355C7D;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to left,  #004e92, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to left,  #8db3d4,  #3b6f9d, #dbdbf3); 
+       
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                
+            }
+            
+</style>
+{% endblock style %}
+
+
+{% block body %}
+
+<div class="row  align-items-center justify-content-center" >
+    <div class="col-md-6  mt-5 text-center">
+        <h1 class="text">WELCOME TO USER PANNEL</h1>
+    </div>
+</div>
+{% endblock body %}
+
+
+{% block javascript %}
+{% endblock javascript %}

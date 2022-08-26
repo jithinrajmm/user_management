@@ -1,0 +1,65 @@
+{% extends "superadmin/base.html" %}
+
+
+{% block body %}
+
+            <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"> HOME</h1>
+
+                    </div>
+
+                    {% if admins %}
+                    <div class="row">
+                        <table class="table table-primary">
+                            <thead>
+                                <tr>
+                                    <th scope="col text-dark">Sl No</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Permission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {% for user in admins  %}
+                                    <tr>
+                                        <th scope="row">{{forloop.counter}}</th>
+                                        <td>{{user.first_name}} {{user.last_name}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.phone}}</td>
+                                        {% if user.role == None %}
+                                          <td>-----</td>
+                                        {% else %}
+                                          <td>{{user.role}}</td>
+                                        {% endif %}
+                                        <td>
+                                            {% if user.is_admins %}
+                                              <a href="{% url 'admin_permission' user.id %}" class="btn btn-success">DE-ACTIVE</a>
+                                            {{user.is_admins}}
+                                            {% else %}
+                                            <a href="{% url 'admin_permission' user.id %}" class="btn btn-danger">ACTIVE</a>
+                                           
+                                              {{user.is_admins}}
+                                            {% endif %}
+                                            
+                                        </td>
+                                         
+                                    </tr>
+                                      
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {%else%}
+                    <h1>No data is available</h1>
+                    {% endif %}
+
+
+
+                </div>
+  
+{% endblock body %}

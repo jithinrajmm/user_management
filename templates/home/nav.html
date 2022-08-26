@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-sm  navbar-dark py-3 px-2" style="background-color: rgba(0, 0, 0, 0.573);">
+    
+        {% if request.user.role == 'admin' %}
+         <a  class="navbar-brand gradient" href=""><h3>ADMIN</h3></a>
+        {% elif request.user.role == 'user'%}
+        <a  class="navbar-brand gradient" href=""><h3>USER</h3></a>
+        {% else %}
+        <a  class="navbar-brand gradient" href=""><h3> WELCOME </h3></a>
+        {% endif %}
+
+    
+    <ul class="navbar-nav ms-auto">
+        
+        <!-- THIS IS FOR THE ADMIN -->
+        {% if request.user.role == 'admin' %}
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'vehicle_list_admin' %}" style="color:  #8db3d4;"> <b>VEHICLE LIST</b> </a>
+        </li>
+        
+        {% elif request.user.role == 'user'%}
+        
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'user_list_vehicle' %}" style="color:  #8db3d4;"> <b>VEHICLE LIST</b> </a>
+        </li>
+       
+        {% endif %}
+        
+        <!-- THIS IS FOR THE USER -->
+
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'log_out' %}" style="color:  #8db3d4;">LOGOUT</a>
+        </li>
+        
+        {% else %}
+        
+        <li class="nav-item">
+            <a class="nav-link"  href="{% url 'login' %}" style="color:  #8db3d4;">LOGIN</a>
+        </li>
+        
+        <li class="nav-item">
+          
+            <a class="nav-link"  href="{% url 'user_registration' %}" style="color:  #8db3d4;">REGISTER</a>
+        </li>
+          
+        {% endif %}
+
+
+
+        
+    </ul>
+</nav>

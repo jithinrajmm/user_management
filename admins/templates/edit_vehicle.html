@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+            <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"> Vehicle Add</h1>
+                    </div>
+                    
+                    <div class="row  align-items-center justify-content-center" style="height: 100%;" >
+                        <div class="col-md-3 p-5 login-body  mt-1 text-center text-white " style="background-color: #4e72df97; border-radius: 25px;">
+
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {{form|crispy}}
+                                <div class="row justify-content-center align-items-center m-5">
+                                    <button type="submit" class="btn btn-dark text-white">
+                                        <b>UPDATE</b> 
+                                    </button>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+  
+{% endblock body %}

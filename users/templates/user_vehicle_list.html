@@ -1,0 +1,62 @@
+{% extends "home/base.html" %}
+
+
+{% block style %} 
+<style>
+    .text{
+                background: #355C7D;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to left,  #004e92, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to left,  #8db3d4,  #3b6f9d, #010102); 
+       
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                
+            }
+            
+</style>
+{% endblock style %}
+
+
+{% block body %}
+
+<div class="row  align-items-center justify-content-center">
+    <div class="col-md-7  mt-5 text-center" >
+        <h1 class="text">VEHICLE LIST</h1>
+                                <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col text-dark">Sl No</th>
+                                    <th scope="col">Vehicle Number</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Vehicle model</th>
+                                    <th scope="col">description</th>
+
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    {% for vehicle in vehicles  %}
+                                    <tr>
+                                        <th scope="row">{{forloop.counter}}</th>
+                                        <td>{{vehicle.vehicle_number}} </td>
+                                        <td>{{vehicle.type}}</td>
+                                        <td>{{vehicle.vehicle_model}}</td>
+                                        <td>{{vehicle.description|slice:100}}</td> 
+                                        <td>
+                                            <a href="{% url 'user_view_vehicle' vehicle.id %}" class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
+                                        </td> 
+ 
+                                    </tr>
+                                      
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+
+    </div>
+</div>
+{% endblock body %}
+
+
+{% block javascript %}
+{% endblock javascript %}

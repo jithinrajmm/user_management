@@ -1,0 +1,44 @@
+{% extends "home/base.html" %}
+
+
+{% block style %} 
+<style>
+    .text{
+                background: #355C7D;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to left,  #004e92, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to left,  #8db3d4,  #3b6f9d, #010102); 
+       
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                
+            }
+            
+</style>
+{% endblock style %}
+
+
+{% block body %}
+
+<div class="row  align-items-center justify-content-center" style="height: 700PX;" >
+    <div class="col-md-6  mt-5 text-center" >
+        <h1 class="text">WELCOME TO VEHICLE MANAGEMENT</h1>
+    </div>
+</div>
+{% endblock body %}
+
+
+{% block scripts %}
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			
+			<script>
+				{% for msg in messages %}
+					{% if msg.tags == 'success'  %}
+						swal('{{msg}}','thank you',"success");
+					{% else %}
+					swal('{{msg}}','',"error");
+					{% endif %}
+				{% endfor %}
+			</script>
+            
+{% endblock scripts %}

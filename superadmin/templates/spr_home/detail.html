@@ -1,0 +1,56 @@
+{% extends "superadmin/base.html" %}
+
+
+{% block body %}
+
+            <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"> HOME</h1>
+
+                    </div>
+
+            
+                    <div class="row p-5 align-items-center justify-content-center">
+                        
+                        <div class="col-md-6 text-center p-5" style="background-color: rgba(0, 0, 0, 0.502);">
+                            
+                            <p class="text-white">vehicle Number:    {{single_vehicle.vehicle_number}}</p>
+                            <p class="text-white"> Type:   {{single_vehicle.type}}</p>
+                            <p class="text-white">Vehicle Model :   {{single_vehicle.vehicle_model}}</p>
+                            <p class="text-white">Descriptions: {{single_vehicle.description}}</p>
+                            
+                        </div>
+                            
+
+                    </div>
+
+
+                </div>
+                
+
+
+
+
+  
+{% endblock body %}
+
+{% block scripts %}
+
+
+  			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			
+			<script>
+				{% for msg in messages %}
+					{% if msg.tags == 'success'  %}
+						swal('{{msg}}','thank you',"success");
+					{% else %}
+					swal('{{msg}}','',"error");
+					{% endif %}
+				{% endfor %}
+                
+
+                
+			</script>
+{% endblock scripts %}

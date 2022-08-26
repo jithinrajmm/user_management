@@ -1,0 +1,35 @@
+INSTALLATION GUIDE 
+###################################################################
+
+CREATE env
+python -m venv env
+
+ACTIVATE 
+env\Scripts\activate
+
+INSTALL PACKAGES
+pip install -r requirements.txt
+
+MAKE MIGRATIONS
+python manage.py makemigrations
+python manage.py migrate
+
+CREATE A SUPERUSER
+it will create super admin
+
+RUN SERVER
+python manage.py runserver
+
+http://127.0.0.1:8000/
+
+########################################################################################
+click login, based on the credential it will display the views
+
+VIEWS
+super user
+user 
+admin
+
+
+frontend: HTML,Bootstrap,ajax,css
+backend : Django,Sqlite3
